@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import building from '../Source/building.svg';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -21,10 +22,10 @@ const EntryComponent = () => {
         </div>
         <div className="come">
         <Button variant="outlined">Войти</Button>
-          <p>Зарегистрироваться</p>
+        <Link to='/authorization'><p>Зарегистрироваться</p></Link>
           </div>
         </div>
-      </div>
+      </div> 
     </div>
   )
 }
