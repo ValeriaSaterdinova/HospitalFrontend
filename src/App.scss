@@ -1,0 +1,13 @@
+body {
+  width: 100vw;
+  height: 99vh;
+  background: #e5e5e5;
+
+  #root {
+    height: 100%;
+
+    .page {
+      height: 100%;
+    }
+  }
+}
