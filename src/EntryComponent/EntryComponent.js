@@ -9,23 +9,23 @@ const EntryComponent = () => {
   return (
     <div className="allElement">
       <div className="image">
-      <img src={building} />
+        <img src={building} />
       </div>
       <div className="allTable">
-      <div className="table">
-        <h1>Войти в систему</h1>
-        <div className="field">
-          <label>Login:</label>
-          <TextField type="text" id="outlined-basic" variant="outlined" />
-          <label>Password:</label>
-          <TextField type="password" id="outlined-basic" variant="outlined" />
-        </div>
-        <div className="come">
-        <Button variant="outlined">Войти</Button>
-        <Link to='/authorization'><p>Зарегистрироваться</p></Link>
+        <div className="table">
+          <h1>Войти в систему</h1>
+          <div className="field">
+            <label>Login:</label>
+            <TextField type="text" id="outlined-basic" variant="outlined" />
+            <label>Password:</label>
+            <TextField type="password" id="outlined-basic" variant="outlined" />
+          </div>
+          <div className="come">
+            <Button variant="outlined">Войти</Button>
+            <Link to='/authorization'><p>Зарегистрироваться</p></Link>
           </div>
         </div>
-      </div> 
+      </div>
     </div>
   )
 }
