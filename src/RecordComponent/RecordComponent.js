@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import building from '../Source/building.svg';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import './EntryComponent.scss';
+import './RecordComponent.scss';
 
-const EntryComponent = () => {
+const RecordComponent = () => {
   return (
     <div className="allElement">
       <div className="image">
@@ -13,16 +13,18 @@ const EntryComponent = () => {
       </div>
       <div className="allTable">
         <div className="table">
-          <h1>Войти в систему</h1>
+          <h1>Регистрация</h1>
           <div className="field">
             <label>Login:</label>
             <TextField type="text" id="outlined-basic" variant="outlined" />
             <label>Password:</label>
             <TextField type="password" id="outlined-basic" variant="outlined" />
+            <label>Repeat password:</label>
+            <TextField type="password" id="outlined-basic" variant="outlined" />
           </div>
-          <div className="come">
-            <Button variant="outlined">Войти</Button>
-            <Link to='/authorization'><p>Зарегистрироваться</p></Link>
+          <div className="registration">
+            <Button variant="outlined">Зарегистрироваться</Button>
+            <Link to='/login'><p>Авторизоваться</p></Link>
           </div>
         </div>
       </div>
@@ -30,4 +32,4 @@ const EntryComponent = () => {
   )
 }
 
-export default EntryComponent;
+export default RecordComponent;
