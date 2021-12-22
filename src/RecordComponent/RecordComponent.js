@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import axios from "axios";
+import axios from 'axios';
 import building from '../Source/building.svg';
-import Snackbar from "@material-ui/core/Snackbar";
+import Snackbar from '@material-ui/core/Snackbar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import './RecordComponent.scss';

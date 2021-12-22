@@ -1,15 +1,28 @@
-import React, { useState }from "react";
-import Button from '@material-ui/core/Button';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import TextField from '@material-ui/core/TextField';
+import React, { useState } from "react";
+import {
+  Button,
+  TextField
+} from '@material-ui/core';
+import {
+  MenuItem,
+  Select
+} from '@mui/material';
 import './ReceptionComponent.scss';
 
 const ReceptionComponent = () => {
+  const allDoctor = [
+    {fullName: 'Иванов Иван Иванович'}, 
+    {fullName: 'Сергеев Сергей Сергеевич'}, 
+    {fullName: 'Семенов Семен Семенович'}, 
+    {fullName: 'Павлов Павел Павлович'}
+  ];
+  
   const [doctor, setDoctor] = useState('');
+
   const handleChange = (event) => {
     setDoctor(event.target.value);
   };
+
   return (
     <div className="allPage">
       <div className="field">
@@ -18,14 +31,13 @@ const ReceptionComponent = () => {
       </div>
       <div className="field">
         <p>Врач:</p>
-        <Select 
+        <Select
           value={doctor}
           onChange={handleChange}
         >
-          <MenuItem value={0}>Иванов Иван Иванович</MenuItem>
-          <MenuItem value={1}>Сергеев Сергей Сергеевич</MenuItem>
-          <MenuItem value={2}>Семенов Семен Семенович</MenuItem>
-          <MenuItem value={3}>Павлов Павел Павлович</MenuItem>
+          {allDoctor.map((value) =>
+            <MenuItem value={value.fullName}>{value.fullName}</MenuItem>
+          )}
         </Select>
       </div>
       <div className="field">
