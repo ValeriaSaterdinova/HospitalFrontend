@@ -1,8 +1,11 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Link, Redirect } from 'react-router-dom';
+import BasicComponent from './BasicComponent/BasicComponent';
 import EntryComponent from './EntryComponent/EntryComponent';
 import HeaderComponent from './HeaderComponent/HeaderComponent';
+import ReceptionComponent from './ReceptionComponent/ReceptionComponent';
 import RecordComponent from './RecordComponent/RecordComponent';
+import Button from '@material-ui/core/Button';
 import './App.scss';
 
 const App = () => {
@@ -17,9 +20,18 @@ const App = () => {
           <HeaderComponent name="Зарегистрироваться в системе" />
           <RecordComponent />
         </Route>
+        <Route path='/reception'>
+          <HeaderComponent name="Приемы">
+            <div>
+            <Link to='/login'><Button variant="outlined">Выход</Button></Link>
+            </div>
+          </HeaderComponent>
+          <ReceptionComponent />
+          <BasicComponent  />
+        </Route>
         <Redirect from='/' to='/login' />
       </Switch>
-    </div>
+    </div >
   );
 }
 
