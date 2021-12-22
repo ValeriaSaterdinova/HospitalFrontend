@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react';
+import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import building from '../Source/building.svg';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Snackbar from "@material-ui/core/Snackbar";
+import {
+  Button,
+  TextField,
+  Snackbar 
+} from '@material-ui/core';
 import './EntryComponent.scss';
 
 const EntryComponent = () => {

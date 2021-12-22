@@ -8,6 +8,7 @@ import {
   TableRow,
   Paper
 } from '@material-ui/core';
+import './BasicComponent.scss';
 
 const BasicComponent = () => {
   const tableheight = [ 'Имя', 'Врач', 'Дата', 'Жалобы', '']
