@@ -25,7 +25,7 @@ const EntryComponent = () => {
             login,
             password
           }).then(res => {
-            localStorage.setItem('token', res.data);
+            localStorage.setItem('token', res.data.token);
             history.push('/reception');
           });
         } catch {
