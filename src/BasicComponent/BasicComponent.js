@@ -52,9 +52,7 @@ const BasicComponent = ({ receptions, setReceptions }) => {
                 <TableCell align="center">{moment(row.date).format('DD.MM.YYYY')}</TableCell>
                 <TableCell align="center">{row.complaints}</TableCell>
                 <TableCell align="center">
-                  <DeleteOutlineRoundedIcon variant="outlined" color="primary" onClick={() => opendeleteModal(index)}>
-                    Open alert dialog
-                  </DeleteOutlineRoundedIcon>
+                  <DeleteOutlineRoundedIcon variant="outlined" color="primary" onClick={() => opendeleteModal(index)} />
                 </TableCell>
               </TableRow>
             ))}

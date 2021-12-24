@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from "axios";
-import moment from "moment";
-import BasicComponent from "../BasicComponent/BasicComponent";
+import axios from 'axios';
+import moment from 'moment';
+import BasicComponent from '../BasicComponent/BasicComponent';
 import {
   Button,
   Snackbar,
@@ -13,7 +13,6 @@ import {
   Select
 } from '@mui/material';
 import './ReceptionComponent.scss';
-
 
 const ReceptionComponent = () => {
   const history = useHistory();
