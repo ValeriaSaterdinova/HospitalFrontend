@@ -58,7 +58,7 @@ const EditComponent = ({ reception, setReceptions, closeEditModal, openly }) => 
         ).then(res => {
           closeEditModal();
           setReceptions(res.data.data);
-        })
+        });
       } else setSnackbar({ open: true, text: 'Please enter a valid date (min:"01-01-2020", max:"31-12-2025")' });
     } catch {
       history.push('/login');
@@ -72,7 +72,7 @@ const EditComponent = ({ reception, setReceptions, closeEditModal, openly }) => 
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Изменить прием"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">Изменить прием</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             <p>Имя:</p>

@@ -36,7 +36,7 @@ const DeleteComponent = ({ reception, setReceptions, closeDeleteModal, open }) =
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Удалить прием"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">Удалить прием</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             Вы действительно хотите удалить прием?
