@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import moment from 'moment';
 import DeleteComponent from '../DeleteComponent/DeleteComponent';
+import EditComponent from '../EditComponent/EditComponent';
 import {
   Table,
   TableBody,
@@ -11,26 +12,40 @@ import {
   Paper
 } from '@material-ui/core';
 import DeleteOutlineRoundedIcon from '@material-ui/icons/DeleteOutlineRounded';
+import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import './BasicComponent.scss';
 
 const BasicComponent = ({ receptions, setReceptions }) => {
-  const [deleteIndex, setDelete] = useState(-1);
+  const [deleteIndex,  setDelete] = useState(-1);
+  const [editIndex, setEdit] = useState(-1);
   const [open, setOpen] = useState(false)
+  const [openly, setOpenly] = useState(false)
 
-  const opendeleteModal = (index) => {
+  const openDeleteModal = (index) => {
     setOpen(true);
     handleClickOpen(index);
   };
 
-  const closedeleteModal = (index) => {
+  const closeDeleteModal = (index) => {
     setOpen(false)
     setDelete(-1);
+  };
+
+  const openEditModal = (index) => {
+    setOpenly(true);
+    handleClickOpen(index);
+  };
+
+  const closeEditModal = (index) => {
+    setOpenly(false)
+    setEdit(-1);
   };
 
   const tableheight = ['Имя', 'Врач', 'Дата', 'Жалобы', ''];
 
   const handleClickOpen = (index) => {
     setDelete(index)
+    setEdit(index)
   };
 
   return (
@@ -52,7 +67,8 @@ const BasicComponent = ({ receptions, setReceptions }) => {
                 <TableCell align="center">{moment(row.date).format('DD.MM.YYYY')}</TableCell>
                 <TableCell align="center">{row.complaints}</TableCell>
                 <TableCell align="center">
-                  <DeleteOutlineRoundedIcon variant="outlined" color="primary" onClick={() => opendeleteModal(index)} />
+                  <DeleteOutlineRoundedIcon  onClick={() => openDeleteModal(index)} />
+                  <EditRoundedIcon onClick={() => openEditModal(index)}/>
                 </TableCell>
               </TableRow>
             ))}
@@ -62,8 +78,14 @@ const BasicComponent = ({ receptions, setReceptions }) => {
       {deleteIndex >= 0 && <DeleteComponent
         reception={receptions[deleteIndex]}
         setReceptions={setReceptions}
-        closedeleteModal={closedeleteModal}
+        closeDeleteModal={closeDeleteModal}
         open={open}
+      />}
+      {editIndex >= 0 && <EditComponent
+        reception={receptions[editIndex]}
+        setReceptions={setReceptions}
+        closeEditModal={closeEditModal}
+        openly={openly}
       />}
     </>
   );
