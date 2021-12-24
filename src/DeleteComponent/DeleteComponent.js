@@ -10,7 +10,7 @@ import {
   DialogTitle
 } from '@material-ui/core';
 
-const DeleteComponent = ({ reception, setReceptions, closedeleteModal, open }) => {
+const DeleteComponent = ({ reception, setReceptions, closeDeleteModal, open }) => {
   const { _id } = reception;
   const history = useHistory();
 
@@ -21,7 +21,7 @@ const DeleteComponent = ({ reception, setReceptions, closedeleteModal, open }) =
           token: localStorage.getItem('token')
         }
       }).then(res => {
-        closedeleteModal();
+        closeDeleteModal();
         setReceptions(res.data.data);
       });
     } catch {
@@ -44,7 +44,7 @@ const DeleteComponent = ({ reception, setReceptions, closedeleteModal, open }) =
         </DialogContent>
         <DialogActions>
           <DialogActions>
-            <Button onClick={(e) => closedeleteModal()} color="primary">
+            <Button onClick={(e) => closeDeleteModal()} color="primary">
               Cansel
             </Button>
           </DialogActions>
