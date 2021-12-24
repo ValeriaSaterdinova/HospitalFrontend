@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route, Link, Redirect } from 'react-router-dom';
-import BasicComponent from './BasicComponent/BasicComponent';
 import EntryComponent from './EntryComponent/EntryComponent';
 import HeaderComponent from './HeaderComponent/HeaderComponent';
 import ReceptionComponent from './ReceptionComponent/ReceptionComponent';
@@ -27,7 +26,6 @@ const App = () => {
             </div>
           </HeaderComponent>
           <ReceptionComponent />
-          <BasicComponent  />
         </Route>
         <Redirect from='/' to='/login' />
       </Switch>

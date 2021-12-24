@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import patch from '../Source/patch.svg'
 import './HeaderComponent.scss';
 
