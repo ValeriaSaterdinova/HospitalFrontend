@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
 import BasicComponent from '../BasicComponent/BasicComponent';
-import SortComponent from '../SortComponent/SortComponent';
 import {
   Button,
   Snackbar,
@@ -19,6 +18,7 @@ const ReceptionComponent = () => {
   const history = useHistory();
   const [snackbar, setSnackbar] = useState({ open: false, text: '' });
   const [receptions, setReceptions] = useState([]);
+  const [filterReceptions, setFilterReceptions] = useState([]);
 
   const ruleDate = /^(0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](202)?[0-5]{1}$/;
 
@@ -45,6 +45,7 @@ const ReceptionComponent = () => {
         token: localStorage.getItem('token')
       }
     }).then(res => {
+      setFilterReceptions([...res.data.data]);
       setReceptions([...res.data.data]);
     }).catch(error => {
       localStorage.clear();
@@ -135,13 +136,10 @@ const ReceptionComponent = () => {
           message={text}
         />
       </div>
-      <SortComponent
-        receptions={receptions}
-        setReceptions={setReceptions}
-      />
       <BasicComponent
         receptions={receptions}
-        setReceptions={setReceptions}
+        filterReceptions={filterReceptions}
+        setReceptions={setFilterReceptions}
       />
     </div >
   )

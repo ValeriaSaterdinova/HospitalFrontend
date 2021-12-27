@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import moment from 'moment';
 import DeleteComponent from '../DeleteComponent/DeleteComponent';
 import EditComponent from '../EditComponent/EditComponent';
+import SortComponent from '../SortComponent/SortComponent';
 import {
   Table,
   TableBody,
@@ -15,8 +16,8 @@ import DeleteOutlineRoundedIcon from '@material-ui/icons/DeleteOutlineRounded';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import './BasicComponent.scss';
 
-const BasicComponent = ({ receptions, setReceptions }) => {
-  const [deleteIndex,  setDelete] = useState(-1);
+const BasicComponent = ({ receptions, setReceptions, filterReceptions }) => {
+  const [deleteIndex, setDelete] = useState(-1);
   const [editIndex, setEdit] = useState(-1);
   const [open, setOpen] = useState(false)
   const [openly, setOpenly] = useState(false)
@@ -50,6 +51,11 @@ const BasicComponent = ({ receptions, setReceptions }) => {
 
   return (
     <>
+      <SortComponent
+        receptions={receptions}
+        setReceptions={setReceptions}
+        filterReceptions={filterReceptions}
+      />
       <TableContainer component={Paper}>
         <Table aria-label="a dense table">
           <TableHead>
@@ -60,15 +66,15 @@ const BasicComponent = ({ receptions, setReceptions }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {receptions.map((row, index) => (
+            {filterReceptions.map((row, index) => (
               <TableRow key={index}>
                 <TableCell align="center">{row.name}</TableCell>
                 <TableCell align="center">{row.doctor}</TableCell>
-                <TableCell align="center">{ moment(row.date).format('DD.MM.YYYY')}</TableCell>
+                <TableCell align="center">{moment(row.date).format('DD.MM.YYYY')}</TableCell>
                 <TableCell align="center">{row.complaints}</TableCell>
                 <TableCell align="center">
-                  <DeleteOutlineRoundedIcon  onClick={() => openDeleteModal(index)} />
-                  <EditRoundedIcon onClick={() => openEditModal(index)}/>
+                  <DeleteOutlineRoundedIcon onClick={() => openDeleteModal(index)} />
+                  <EditRoundedIcon onClick={() => openEditModal(index)} />
                 </TableCell>
               </TableRow>
             ))}
@@ -76,13 +82,13 @@ const BasicComponent = ({ receptions, setReceptions }) => {
         </Table>
       </TableContainer>
       {deleteIndex >= 0 && <DeleteComponent
-        reception={receptions[deleteIndex]}
+        reception={filterReceptions[deleteIndex]}
         setReceptions={setReceptions}
         closeDeleteModal={closeDeleteModal}
         open={open}
       />}
       {editIndex >= 0 && <EditComponent
-        reception={receptions[editIndex]}
+        reception={filterReceptions[editIndex]}
         setReceptions={setReceptions}
         closeEditModal={closeEditModal}
         openly={openly}

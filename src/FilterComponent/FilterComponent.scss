@@ -1,0 +1,43 @@
+.all-elements {
+  width: 100%;
+  height: 15%;
+  background-color: #c5e9ff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
+  .date {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .MuiOutlinedInput-input {
+      width: 12em;
+      background-color: white;
+    }
+
+    p {
+      margin-right: 4%;
+    }
+  }
+
+  .functional {
+    width: 20%;
+    display: flex;
+    align-items: center;
+
+    .MuiButton-outlined {
+      height: 4em;
+      width: 15em;
+      margin-right: 5%;
+      background-color: white;
+    }
+
+    svg {
+      width: 3em;
+      height: 2em;
+    }
+  }
+}
