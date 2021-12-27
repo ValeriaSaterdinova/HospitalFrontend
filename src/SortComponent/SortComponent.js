@@ -3,9 +3,12 @@ import {
   MenuItem,
   Select
 } from '@mui/material';
+import AddBoxIcon from '@material-ui/icons/AddBox';
 import './SortComponent.scss';
+import FilterComponent from "../FilterComponent/FilterComponent";
 
-const SortComponent = ({ receptions, setReceptions }) => {
+const SortComponent = ({ receptions, setReceptions, filterReceptions }) => {
+  const [open, setOpen] = useState(false)
   const [sortParams, setSortParams] = useState({
     column: "_id",
     direction: "asc"
@@ -53,45 +56,60 @@ const SortComponent = ({ receptions, setReceptions }) => {
   }
 
   const sortReseptions = (whatSort, howSort) => {
-
-    receptions.sort((a, b) =>
+    filterReceptions.sort((a, b) =>
       a[whatSort] > b[whatSort]
         ? 1
         : a[whatSort] < b[whatSort]
           ? -1
           : 0
     );
-    if (howSort === "desc") receptions.reverse();
-    setReceptions([...receptions]);
+    if (howSort === "desc") filterReceptions.reverse();
+    setReceptions([...filterReceptions]);
   };
 
   return (
-    <div className='allSort'>
-      <div className='paramSort'>
-        <p>Сортировать по:</p>
-        <Select
-          value={column}
-          onChange={(e) => handleChangeColumn(e.target.value)}
-        >
-          {sortPosition.map((element, index) =>
-            <MenuItem value={element.value} key={`key-${index}`}>{element.key}</MenuItem>
-          )}
-        </Select>
+    <>
+      <div className='allSort'>
+        <div className='paramSort'>
+          <p>Сортировать по:</p>
+          <Select
+            value={column}
+            onChange={(e) => handleChangeColumn(e.target.value)}
+          >
+            {sortPosition.map((element, index) =>
+              <MenuItem value={element.value} key={`key-${index}`}>{element.key}</MenuItem>
+            )}
+          </Select>
+        </div>
+        {column !== "_id" && (
+          <div className='paramSort'>
+            <p>Направление:</p>
+            <Select
+              value={direction}
+              onChange={(e) => handleChangeDirection(e.target.value)}
+            >
+              {sortType.map((element, index) =>
+                <MenuItem value={element.type} key={`title -${index}`}>{element.title}</MenuItem>
+              )}
+            </Select>
+          </div>
+        )}
+        {open === false && (
+          <div className="add-filter">
+            <p>Фильтровать по дате:</p>
+            <AddBoxIcon onClick={() => setOpen(!open)} />
+          </div>
+        )}
       </div>
-    { column !== "_id"  && (
-      <div className='paramSort'>
-        <p>Направление:</p>
-        <Select
-          value={direction}
-          onChange={(e) => handleChangeDirection(e.target.value)}
-        >
-          {sortType.map((element, index) =>
-            <MenuItem value={element.type} key={`title -${index}`}>{element.title}</MenuItem>
-          )}
-        </Select>
-      </div>
-    )}
-    </div>
+      {open === true && (
+        <FilterComponent
+          setOpen={setOpen}
+          receptions={receptions}
+          setReceptions={setReceptions}
+          filterReceptions={filterReceptions}
+        />
+      )}
+    </>
   )
 }
 
