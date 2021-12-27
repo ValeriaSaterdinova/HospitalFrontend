@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
 import BasicComponent from '../BasicComponent/BasicComponent';
+import SortComponent from '../SortComponent/SortComponent';
 import {
   Button,
   Snackbar,
@@ -69,7 +70,7 @@ const ReceptionComponent = () => {
             complaints: ""
           });
         });
-      } else setSnackbar({ open: true, text: 'Please enter a valid date (min:"01-01-2020", max:"31-12-2025")'});
+      } else setSnackbar({ open: true, text: 'Please enter a valid date (min:"01-01-2020", max:"31-12-2025")' });
     } else setSnackbar({ open: true, text: 'Please fill in all fields' });
   }
 
@@ -134,6 +135,10 @@ const ReceptionComponent = () => {
           message={text}
         />
       </div>
+      <SortComponent
+        receptions={receptions}
+        setReceptions={setReceptions}
+      />
       <BasicComponent
         receptions={receptions}
         setReceptions={setReceptions}

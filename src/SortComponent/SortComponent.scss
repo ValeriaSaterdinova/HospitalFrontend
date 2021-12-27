@@ -1,0 +1,30 @@
+.allSort {
+  height: 15%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+  background-color: #c5e9ff;
+  margin-top: 9px;
+  box-shadow: 0 5px 20px rgb(0 0 0 / 55%);
+
+  .paramSort {
+    width: 25%;
+    margin-left: 4%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+
+    p {
+      margin-left: 1%;
+      width: 40%;
+      height: 40%;
+    }
+
+    .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
+      width: 60%;
+      background-color: white;
+    }
+  }
+}
