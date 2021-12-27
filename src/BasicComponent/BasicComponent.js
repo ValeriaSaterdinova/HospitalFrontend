@@ -64,7 +64,7 @@ const BasicComponent = ({ receptions, setReceptions }) => {
               <TableRow key={index}>
                 <TableCell align="center">{row.name}</TableCell>
                 <TableCell align="center">{row.doctor}</TableCell>
-                <TableCell align="center">{moment(row.date).format('DD.MM.YYYY')}</TableCell>
+                <TableCell align="center">{ moment(row.date).format('DD.MM.YYYY')}</TableCell>
                 <TableCell align="center">{row.complaints}</TableCell>
                 <TableCell align="center">
                   <DeleteOutlineRoundedIcon  onClick={() => openDeleteModal(index)} />
