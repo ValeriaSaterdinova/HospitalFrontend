@@ -1,4 +1,4 @@
-.allSort {
+.all-sort {
   height: 15%;
   width: 100%;
   display: flex;
@@ -8,7 +8,7 @@
   background-color: #c5e9ff;
   margin-top: 9px;
 
-  .paramSort {
+  .param-sort {
     width: 25%;
     margin-left: 4%;
     display: flex;
@@ -41,10 +41,10 @@
 }
 
 @media (max-device-width: 768px) {
-  .allSort {
+  .all-sort {
     height: 20%;
     
-    .paramSort {
+    .param-sort {
       width: 30%;
       align-items: center;
       flex-direction: column;
@@ -64,11 +64,12 @@
 }
 
 @media (max-device-width: 425px) {
-  .allSort {
+  
+  .all-sort {
     height: 60%;
     flex-direction: column;
 
-    .paramSort {
+    .param-sort {
       height: 90%;
       width: 70%;
       display: flex;

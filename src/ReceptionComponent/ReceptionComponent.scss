@@ -1,4 +1,4 @@
-.allPage {
+.all-page {
   display: flex;
   flex-direction: column;
   height: 85%;
@@ -50,7 +50,7 @@
 }
 
 @media (max-device-width: 768px) {
-  .allPage {
+  .all-page {
 
     .add {
     
@@ -79,7 +79,7 @@
 }
 
 @media (max-width: 425px) {
-  .allPage {
+  .all-page {
     
     .add {
       height: auto;

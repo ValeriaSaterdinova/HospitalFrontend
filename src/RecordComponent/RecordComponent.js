@@ -40,11 +40,11 @@ const RecordComponent = () => {
   const { open, text } = snackbar;
 
   return (
-    <div className="allPageElement">
+    <div className="all-page-element">
       <div className="image">
         <img src={building} />
       </div>
-      <div className="allTable">
+      <div className="all-table">
         <div className="table">
           <h1>Регистрация</h1>
           <div className="field">

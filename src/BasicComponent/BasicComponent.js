@@ -56,56 +56,56 @@ const BasicComponent = ({ receptions, setReceptions, filterReceptions, setFilter
         setReceptions={setReceptions}
         filterReceptions={filterReceptions}
       />
-        <TableContainer 
-        className='table-container' 
+      <TableContainer
+        className='table-container'
         component={Paper}>
-          <Table aria-label="a dense table">
-            <TableHead className='table-head'>
-              <TableRow>
-                {tableheight.map((value, index) =>
-                  <TableCell align="center" key={`cell-${index}`}>{value}</TableCell>
-                )}
+        <Table aria-label="a dense table">
+          <TableHead className='table-head'>
+            <TableRow>
+              {tableheight.map((value, index) =>
+                <TableCell align="center" key={`cell-${index}`}>{value}</TableCell>
+              )}
+            </TableRow>
+          </TableHead>
+          <TableBody className='table-body'>
+            {filterReceptions.map((row, index) => (
+              <TableRow key={index}>
+                <TableCell
+                  className='table-row'
+                  align="center"
+                >
+                  {row.name}
+                </TableCell>
+                <TableCell
+                  className='table-row'
+                  align="center"
+                >
+                  {row.doctor}
+                </TableCell>
+                <TableCell
+                  className='table-row'
+                  align="center"
+                >
+                  {moment(row.date).format('DD.MM.YYYY')}
+                </TableCell>
+                <TableCell
+                  className='table-row'
+                  align="center"
+                >
+                  {row.complaints}
+                </TableCell>
+                <TableCell
+                  className='table-row'
+                  align="center"
+                >
+                  <DeleteOutlineRoundedIcon onClick={() => openDeleteModal(index)} />
+                  <EditRoundedIcon onClick={() => openEditModal(index)} />
+                </TableCell>
               </TableRow>
-            </TableHead>
-            <TableBody className='table-body'>
-              {filterReceptions.map((row, index) => (
-                <TableRow key={index}>
-                  <TableCell
-                    className='table-row'
-                    align="center"
-                  >
-                    {row.name}
-                  </TableCell>
-                  <TableCell
-                    className='table-row'
-                    align="center"
-                  >
-                    {row.doctor}
-                  </TableCell>
-                  <TableCell
-                    className='table-row'
-                    align="center"
-                  >
-                    {moment(row.date).format('DD.MM.YYYY')}
-                  </TableCell>
-                  <TableCell
-                    className='table-row'
-                    align="center"
-                  >
-                    {row.complaints}
-                  </TableCell>
-                  <TableCell
-                    className='table-row'
-                    align="center"
-                  >
-                    <DeleteOutlineRoundedIcon onClick={() => openDeleteModal(index)} />
-                    <EditRoundedIcon onClick={() => openEditModal(index)} />
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
       {deleteIndex >= 0 && <DeleteComponent
         reception={filterReceptions[deleteIndex]}
         setReceptions={setReceptions}

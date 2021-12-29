@@ -78,7 +78,7 @@ const ReceptionComponent = () => {
   }
 
   return (
-    <div className="allPage">
+    <div className="all-page">
       <div className="add">
         <div className="field">
           <p>Имя:</p>
