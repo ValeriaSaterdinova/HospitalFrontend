@@ -38,11 +38,11 @@ const EntryComponent = () => {
   const { open, text } = snackbar;
 
   return (
-    <div className="allElement">
+    <div className="all-element">
       <div className="image">
         <img src={building} />
       </div>
-      <div className="allTable">
+      <div className="all-table">
         <div className="table">
           <h1>Войти в систему</h1>
           <div className="field">

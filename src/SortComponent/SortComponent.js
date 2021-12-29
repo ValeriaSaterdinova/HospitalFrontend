@@ -69,10 +69,11 @@ const SortComponent = ({ receptions, setReceptions, filterReceptions }) => {
 
   return (
     <>
-      <div className='allSort'>
-        <div className='paramSort'>
+      <div className='all-sort'>
+        <div className='param-sort'>
           <p>Сортировать по:</p>
           <Select
+            className='field'
             value={column}
             onChange={(e) => handleChangeColumn(e.target.value)}
           >
@@ -82,9 +83,10 @@ const SortComponent = ({ receptions, setReceptions, filterReceptions }) => {
           </Select>
         </div>
         {column !== "_id" && (
-          <div className='paramSort'>
+          <div className='param-sort'>
             <p>Направление:</p>
             <Select
+              className='field'
               value={direction}
               onChange={(e) => handleChangeDirection(e.target.value)}
             >

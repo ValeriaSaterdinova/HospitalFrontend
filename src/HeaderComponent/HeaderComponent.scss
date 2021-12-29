@@ -24,14 +24,28 @@
     justify-content: space-between;
 
     h1 {
-      font-size: 3em;
+      font-size: 2.3em;
       font-weight: lighter;
     }
 
     button {
       background-color: white;
-      height: 5vh;
-      width: 12vw;
+      height: 6vh;
+      width: 16vw;
+    }
+  }
+}
+
+@media (max-device-width: 425px) {
+  .header {
+    height: 12%;
+    
+    .image img {
+      width: 85%;
+      height: 100%;
+    }
+    .string h1 {
+      font-size: 1.6em;
     }
   }
 }

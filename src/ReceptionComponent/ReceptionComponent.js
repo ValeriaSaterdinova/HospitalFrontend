@@ -45,8 +45,8 @@ const ReceptionComponent = () => {
         token: localStorage.getItem('token')
       }
     }).then(res => {
-      setFilterReceptions([...res.data.data]);
       setReceptions([...res.data.data]);
+      setFilterReceptions([...res.data.data]);
     }).catch(error => {
       localStorage.clear();
       history.push('/login');
@@ -64,6 +64,8 @@ const ReceptionComponent = () => {
         }).then(res => {
           receptions.push(res.data.data);
           setReceptions([...receptions]);
+          filterReceptions.push(res.data.data);
+          setFilterReceptions([...filterReceptions]);
           setData({
             name: "",
             doctor: "",
@@ -76,13 +78,13 @@ const ReceptionComponent = () => {
   }
 
   return (
-    <div className="allPage">
+    <div className="all-page">
       <div className="add">
         <div className="field">
           <p>Имя:</p>
           <TextField
+            className="input-data"
             type="text"
-            id="outlined-basic"
             variant="outlined"
             value={name}
             onChange={(e) => setData({ ...data, name: e.target.value.trim() })}
@@ -91,6 +93,7 @@ const ReceptionComponent = () => {
         <div className="field">
           <p>Врач:</p>
           <Select
+            className="field-doctor"
             value={doctor}
             onChange={(e) => setData({ ...data, doctor: e.target.value })}
           >
@@ -102,8 +105,8 @@ const ReceptionComponent = () => {
         <div className="field">
           <p>Дата:</p>
           <TextField
+            className="input-data"
             type="date"
-            id="outlined-basic"
             variant="outlined"
             value={date}
             InputProps={{ inputProps: { min: "2020-01-01", max: "2025-12-31" } }}
@@ -113,8 +116,8 @@ const ReceptionComponent = () => {
         <div className="field">
           <p>Жалобы:</p>
           <TextField
+            className="input-data"
             type="text"
-            id="outlined-basic"
             variant="outlined"
             value={complaints}
             onChange={(e) => setData({ ...data, complaints: e.target.value.trim() })}
@@ -139,6 +142,7 @@ const ReceptionComponent = () => {
       <BasicComponent
         receptions={receptions}
         filterReceptions={filterReceptions}
+        setFilterReceptions={setFilterReceptions}
         setReceptions={setFilterReceptions}
       />
     </div >
