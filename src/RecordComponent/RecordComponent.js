@@ -40,7 +40,7 @@ const RecordComponent = () => {
   const { open, text } = snackbar;
 
   return (
-    <div className="allElement">
+    <div className="allPageElement">
       <div className="image">
         <img src={building} />
       </div>

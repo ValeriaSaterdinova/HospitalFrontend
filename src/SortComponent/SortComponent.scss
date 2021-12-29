@@ -20,7 +20,7 @@
       height: 40%;
     }
 
-    .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
+    .field {
       width: 60%;
       background-color: white;
     }
@@ -36,6 +36,52 @@
       fill: currentColor;
       width: 2em;
       height: 3em;
+    }
+  }
+}
+
+@media (max-device-width: 768px) {
+  .allSort {
+    height: 20%;
+    
+    .paramSort {
+      width: 30%;
+      align-items: center;
+      flex-direction: column;
+
+      p {
+        width: 55%;
+        height: auto;
+        font-size: 1em;
+        margin: 4px 0;
+      }
+
+      .field {
+        width: 90%;
+      }
+    }
+  }
+}
+
+@media (max-device-width: 425px) {
+  .allSort {
+    height: 60%;
+    flex-direction: column;
+
+    .paramSort {
+      height: 90%;
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+
+      p {
+        margin: 6px 0;
+      }
+
+      .field {
+        width: 90%;
+        height: 50%;
+      }
     }
   }
 }

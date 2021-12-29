@@ -73,6 +73,7 @@ const SortComponent = ({ receptions, setReceptions, filterReceptions }) => {
         <div className='paramSort'>
           <p>Сортировать по:</p>
           <Select
+            className='field'
             value={column}
             onChange={(e) => handleChangeColumn(e.target.value)}
           >
@@ -85,6 +86,7 @@ const SortComponent = ({ receptions, setReceptions, filterReceptions }) => {
           <div className='paramSort'>
             <p>Направление:</p>
             <Select
+              className='field'
               value={direction}
               onChange={(e) => handleChangeDirection(e.target.value)}
             >

@@ -10,7 +10,7 @@ import {
   DialogTitle
 } from '@material-ui/core';
 
-const DeleteComponent = ({ reception, setReceptions, closeDeleteModal, open }) => {
+const DeleteComponent = ({ reception, setReceptions, setFilterReceptions, closeDeleteModal, open }) => {
   const { _id } = reception;
   const history = useHistory();
 
@@ -22,6 +22,7 @@ const DeleteComponent = ({ reception, setReceptions, closeDeleteModal, open }) =
         }
       }).then(res => {
         closeDeleteModal();
+        setFilterReceptions(res.data.data);
         setReceptions(res.data.data);
       });
     } catch {
